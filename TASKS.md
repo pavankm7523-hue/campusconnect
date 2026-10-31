@@ -21,13 +21,14 @@
 - [x] Redesign Recruiter Dashboard with brutalist candidate review pipeline
 - [x] Redesign Admin Dashboard with brutalist placement audit metrics
 
-## Phase 3 — Fix Student Registration Failure
-- [x] Fix `RegisterPage.tsx` duplicate submission & debouncing
-- [x] Add toast deduplication (`id: 'register-error'`) to prevent double-toasting
-- [x] Fix `api.ts` base URL to support Vite relative proxying and HTTPS cloud backends
-- [x] Display exact, informative error messages (Duplicate email, Duplicate roll number, Validation failures, Backend unreachable)
-- [x] Validate BCrypt password hashing in `AuthService.java`
-- [x] End-to-end verification: Submit new synthetic student, verify DB record, login, and access dashboard
+## Phase 3 — Fix Student & Recruiter Production Registration Failure
+- [x] Identified root cause: Vercel static routing lacked an API reverse proxy rule, causing `POST /api/auth/register/*` to return `405 Method Not Allowed`
+- [x] Configured Cloudflare edge tunnel and Vercel `vercel.json` API routing to proxy `/api/*` directly to live backend
+- [x] Updated Spring Boot `SecurityConfig.java` & `CorsConfig.java` to support `allowedOriginPatterns("*")`
+- [x] Configured file-backed database (`jdbc:h2:file:./data/campusconnect`) ensuring complete data persistence across backend restarts
+- [x] Deployed updated frontend with verified environment variables to Vercel production: `https://campusconnect-portal-alpha.vercel.app`
+- [x] Pushed source repository to GitHub: `https://github.com/pavankm7523-hue/campusconnect`
+- [x] End-to-end verified on live Vercel URL: student registration, duplicate email check (409), duplicate roll number check (409), student login, dashboard retrieval, recruiter registration, and post-restart persistence
 
 ## Phase 4 — Fix Recruiter Registration
 - [x] Inspect and verify `registerRecruiter` endpoint

@@ -4,6 +4,7 @@
 > **Full-Stack Autonomous Web Platform for University Placement Offices, Corporate Recruiters, and Graduating Candidates.**
 
 [![Live Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20Portal-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://campusconnect-portal-alpha.vercel.app)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-pavankm7523--hue%2Fcampusconnect-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pavankm7523-hue/campusconnect)
 [![Spring Boot 3.2.5](https://img.shields.io/badge/Spring%20Boot-3.2.5-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
 [![React 18 & Vite](https://img.shields.io/badge/React%2018-Vite%205-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://vitejs.dev/)
 [![Tests Passing](https://img.shields.io/badge/JUnit%205-15%2F15%20Passing-22C55E?style=for-the-badge&logo=junit5&logoColor=white)](https://junit.org/junit5/)
