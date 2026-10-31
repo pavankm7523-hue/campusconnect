@@ -55,21 +55,21 @@ export default function LandingPage() {
       {/* 1. MODERN BRUTALIST NAVIGATION                                 */}
       {/* ============================================================== */}
       <header className="sticky top-0 z-50 bg-canvas border-b-2 border-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-15 sm:h-18 py-2 sm:py-2.5 flex items-center justify-between">
           
           {/* Brutalist Wordmark */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <span className="w-4 h-4 bg-cobalt inline-block border border-black shadow-[2px_2px_0px_#000000]"></span>
-            <span className="font-heading font-black text-xl tracking-tight text-ink group-hover:text-cobalt transition-colors">
+          <Link to="/" className="flex items-center space-x-1.5 sm:space-x-2 group flex-shrink-0">
+            <span className="w-3.5 h-3.5 sm:w-4 sm:h-4 bg-cobalt inline-block border border-black shadow-[2px_2px_0px_#000000]"></span>
+            <span className="font-heading font-black text-sm sm:text-xl tracking-tight text-ink group-hover:text-cobalt transition-colors">
               CAMPUSCONNECT
             </span>
-            <span className="font-mono text-[10px] text-white bg-black px-1.5 py-0.5 font-bold uppercase">
+            <span className="hidden sm:inline font-mono text-[10px] text-white bg-black px-1.5 py-0.5 font-bold uppercase">
               REC/26
             </span>
           </Link>
 
-          {/* Center Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8 text-xs font-mono font-bold uppercase tracking-wider text-ink">
+          {/* Center Navigation Links - Visible on XL screens to prevent horizontal overflow */}
+          <nav className="hidden xl:flex items-center space-x-6 2xl:space-x-8 text-xs font-mono font-bold uppercase tracking-wider text-ink">
             <a href="#students" className="hover:text-cobalt hover:underline transition-colors">
               [01] STUDENTS
             </a>
@@ -88,18 +88,19 @@ export default function LandingPage() {
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-1.5 sm:space-x-3 flex-shrink-0">
             <Link
               to="/login"
-              className="text-xs font-mono font-bold uppercase tracking-wider text-ink hover:text-cobalt px-2 py-1"
+              className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-ink hover:text-cobalt px-1 sm:px-2 py-1"
             >
               SIGN IN
             </Link>
             <Link
               to="/register"
-              className="btn-primary text-xs py-2 px-4"
+              className="btn-primary text-[10px] sm:text-xs py-1 px-2.5 sm:py-2 sm:px-4"
             >
-              GET STARTED
+              <span className="hidden sm:inline">GET STARTED</span>
+              <span className="sm:hidden">JOIN</span>
             </Link>
           </div>
         </div>
@@ -108,34 +109,34 @@ export default function LandingPage() {
       {/* ============================================================== */}
       {/* 2. UNCONVENTIONAL SPLIT-LAYOUT HERO                            */}
       {/* ============================================================== */}
-      <section className="border-b-4 border-black bg-canvas pt-12 pb-16 lg:pt-16 lg:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+      <section className="border-b-4 border-black bg-canvas pt-8 pb-12 sm:pt-10 sm:pb-14 lg:pt-12 lg:pb-16">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12 items-center">
             
             {/* LEFT COLUMN: Oversized Brutalist Typography & Entry Points */}
-            <div className="lg:col-span-6 flex flex-col justify-between">
+            <div className="lg:col-span-5 xl:col-span-6 flex flex-col justify-center">
               <div>
-                <div className="inline-flex items-center space-x-2 bg-black text-white px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest mb-6 shadow-[3px_3px_0px_#0038FF]">
+                <div className="inline-flex items-center space-x-2 bg-black text-white px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest mb-5 shadow-[3px_3px_0px_#0038FF]">
                   <span className="w-2 h-2 bg-cobalt inline-block"></span>
                   <span>CAMPUS RECRUITMENT REVOLUTION // 2026</span>
                 </div>
 
                 {/* EXACT MANDATED HEADLINE */}
-                <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black uppercase text-ink leading-[0.92] tracking-tighter">
+                <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black uppercase text-ink leading-[0.92] tracking-tighter max-w-xl">
                   YOUR NEXT<br />
-                  <span className="text-cobalt underline decoration-4 underline-offset-8">OPPORTUNITY</span><br />
+                  <span className="text-cobalt">OPPORTUNITY</span><br />
                   STARTS HERE.
                 </h1>
 
-                <p className="mt-8 text-base sm:text-lg text-[#2E2E2E] font-sans leading-relaxed max-w-lg border-l-4 border-black pl-4">
-                  One unified, rule-bound platform for university students, verified recruiters, and placement directors to coordinate the entire recruitment cycle.
+                <p className="mt-5 text-sm sm:text-base text-[#2E2E2E] font-sans leading-relaxed max-w-lg border-l-4 border-black pl-3.5">
+                  One unified, rule-bound platform for university candidates, verified corporate recruiters, and placement directors to coordinate the entire recruitment cycle.
                 </p>
 
                 {/* Dual Entry Points */}
-                <div className="mt-10 flex flex-wrap items-center gap-4">
+                <div className="mt-7 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                   <Link
                     to="/register"
-                    className="btn-primary text-sm py-4 px-8 inline-flex items-center"
+                    className="btn-primary text-xs sm:text-sm py-3 px-5 sm:px-6 whitespace-nowrap inline-flex items-center justify-center font-bold tracking-wider"
                   >
                     <span>EXPLORE OPPORTUNITIES</span>
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -143,7 +144,7 @@ export default function LandingPage() {
 
                   <Link
                     to="/register?role=recruiter"
-                    className="btn-secondary text-sm py-4 px-8"
+                    className="btn-secondary text-xs sm:text-sm py-3 px-5 sm:px-6 whitespace-nowrap inline-flex items-center justify-center font-bold tracking-wider"
                   >
                     FOR RECRUITERS
                   </Link>
@@ -151,18 +152,18 @@ export default function LandingPage() {
               </div>
 
               {/* Hardware / Engine Status Strip */}
-              <div className="mt-12 pt-6 border-t-2 border-black grid grid-cols-3 gap-4 font-mono text-xs">
+              <div className="mt-8 pt-5 border-t-2 border-black grid grid-cols-3 gap-3 font-mono text-xs max-w-lg">
                 <div>
-                  <span className="text-ink-400 block text-[10px] uppercase font-bold">CYCLE</span>
-                  <span className="font-bold text-black text-sm">2025–2026</span>
+                  <span className="text-ink-400 block text-[9px] sm:text-[10px] uppercase font-bold tracking-wider">CYCLE</span>
+                  <span className="font-bold text-black text-xs sm:text-sm">2025–2026</span>
                 </div>
                 <div>
-                  <span className="text-ink-400 block text-[10px] uppercase font-bold">ENGINE</span>
-                  <span className="font-bold text-cobalt text-sm">RULE-FILTERED</span>
+                  <span className="text-ink-400 block text-[9px] sm:text-[10px] uppercase font-bold tracking-wider">ENGINE</span>
+                  <span className="font-bold text-cobalt text-xs sm:text-sm">RULE-FILTERED</span>
                 </div>
                 <div>
-                  <span className="text-ink-400 block text-[10px] uppercase font-bold">STATE</span>
-                  <span className="font-bold text-[#136C2C] text-sm flex items-center">
+                  <span className="text-ink-400 block text-[9px] sm:text-[10px] uppercase font-bold tracking-wider">STATE</span>
+                  <span className="font-bold text-[#136C2C] text-xs sm:text-sm flex items-center">
                     <span className="w-2 h-2 rounded-none bg-[#136C2C] mr-1.5 inline-block"></span>
                     ACTIVE
                   </span>
@@ -171,163 +172,148 @@ export default function LandingPage() {
             </div>
 
             {/* RIGHT COLUMN: Authentic Brutalist Placement Console Preview */}
-            <div className="lg:col-span-6 flex flex-col">
-              <div className="bg-white border-3 border-black shadow-brutal-lg flex-1 flex flex-col justify-between">
+            <div className="lg:col-span-7 xl:col-span-6 flex flex-col w-full max-w-full overflow-hidden">
+              <div className="bg-white border-2 sm:border-3 border-black shadow-[3px_3px_0px_#0A0A0A] sm:shadow-[4px_4px_0px_#0A0A0A] flex flex-col mr-1 mb-1">
                 
                 {/* Console Title Bar */}
-                <div className="bg-black text-white px-4 py-3 flex items-center justify-between border-b-2 border-black font-mono text-xs">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2.5 h-2.5 bg-[#EF4444] border border-black"></div>
-                    <div className="w-2.5 h-2.5 bg-[#FACC15] border border-black"></div>
-                    <div className="w-2.5 h-2.5 bg-[#22C55E] border border-black"></div>
-                    <span className="ml-2 font-bold tracking-wider">
+                <div className="bg-black text-white px-3.5 py-2.5 flex items-center justify-between border-b-2 border-black font-mono text-xs">
+                  <div className="flex items-center space-x-2 min-w-0">
+                    <div className="w-2.5 h-2.5 bg-[#EF4444] border border-black flex-shrink-0"></div>
+                    <div className="w-2.5 h-2.5 bg-[#FACC15] border border-black flex-shrink-0"></div>
+                    <div className="w-2.5 h-2.5 bg-[#22C55E] border border-black flex-shrink-0"></div>
+                    <span className="ml-1.5 font-bold tracking-wider text-[11px] sm:text-xs truncate">
                       CAMPUSCONNECT://CONSOLE.v2.6
                     </span>
                   </div>
-                  <div className="flex items-center space-x-2 text-[10px] bg-[#1F1F1F] px-2 py-0.5 border border-[#404040]">
-                    <span className="w-1.5 h-1.5 bg-[#22C55E]"></span>
-                    <span>PORT 8080 CONNECTED</span>
+                  <div className="flex items-center space-x-1.5 text-[9px] sm:text-[10px] bg-[#1F1F1F] px-2 py-0.5 border border-[#404040] flex-shrink-0 whitespace-nowrap">
+                    <span className="w-1.5 h-1.5 bg-[#22C55E] inline-block"></span>
+                    <span className="hidden md:inline">SAMPLE RECRUITMENT DATA</span>
+                    <span className="md:hidden">SAMPLE DATA</span>
                   </div>
                 </div>
 
                 {/* Console Content */}
-                <div className="p-6 space-y-6 flex-1">
+                <div className="p-4 sm:p-5 space-y-4">
                   
                   {/* Top 4 Real-time Metrics */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    <div className="p-3 bg-canvas border-2 border-black">
-                      <span className="font-mono text-[10px] font-bold text-ink-500 uppercase block">CANDIDATES</span>
-                      <span className="font-display text-2xl font-black text-black">{stats.totalStudents}</span>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                    <div className="p-2.5 bg-canvas border-2 border-black">
+                      <span className="font-mono text-[9px] font-bold text-ink-500 uppercase block tracking-wider">CANDIDATES</span>
+                      <span className="font-display text-xl sm:text-2xl font-black text-black">{stats.totalStudents || 418}</span>
                     </div>
-                    <div className="p-3 bg-canvas border-2 border-black">
-                      <span className="font-mono text-[10px] font-bold text-ink-500 uppercase block">PLACED</span>
-                      <span className="font-display text-2xl font-black text-black">{stats.studentsPlaced}</span>
+                    <div className="p-2.5 bg-canvas border-2 border-black">
+                      <span className="font-mono text-[9px] font-bold text-ink-500 uppercase block tracking-wider">PLACED</span>
+                      <span className="font-display text-xl sm:text-2xl font-black text-black">{stats.studentsPlaced || 312}</span>
                     </div>
-                    <div className="p-3 bg-canvas border-2 border-black">
-                      <span className="font-mono text-[10px] font-bold text-ink-500 uppercase block">DRIVES</span>
-                      <span className="font-display text-2xl font-black text-black">{stats.totalCompanies}</span>
+                    <div className="p-2.5 bg-canvas border-2 border-black">
+                      <span className="font-mono text-[9px] font-bold text-ink-500 uppercase block tracking-wider">DRIVES</span>
+                      <span className="font-display text-xl sm:text-2xl font-black text-black">{stats.totalCompanies || 24}</span>
                     </div>
-                    <div className="p-3 bg-[#E6ECFF] border-2 border-black">
-                      <span className="font-mono text-[10px] font-bold text-cobalt uppercase block">RATIO</span>
-                      <span className="font-display text-2xl font-black text-cobalt">{stats.placementPercentage}%</span>
+                    <div className="p-2.5 bg-[#E6ECFF] border-2 border-black">
+                      <span className="font-mono text-[9px] font-bold text-cobalt uppercase block tracking-wider">RATIO</span>
+                      <span className="font-display text-xl sm:text-2xl font-black text-cobalt">{stats.placementPercentage || 74.6}%</span>
                     </div>
                   </div>
 
                   {/* Active Company Recruitment Drives */}
                   <div>
-                    <div className="flex items-center justify-between pb-2 border-b-2 border-black mb-3">
-                      <span className="font-mono text-xs uppercase tracking-wider font-black text-black">
+                    <div className="flex items-center justify-between pb-1.5 border-b-2 border-black mb-2.5">
+                      <span className="font-mono text-[11px] uppercase tracking-wider font-black text-black flex items-center">
+                        <span className="w-1.5 h-1.5 bg-cobalt mr-1.5 inline-block"></span>
                         [ACTIVE RECRUITMENT DRIVES]
                       </span>
-                      <span className="font-mono text-[11px] text-white bg-black px-1.5 py-0.5">
+                      <span className="font-mono text-[10px] text-white bg-black px-1.5 py-0.5 font-bold">
                         BATCH: 2026
                       </span>
                     </div>
 
-                    <div className="space-y-3">
-                      {/* Drive 1 */}
-                      <div className="p-3 bg-white border-2 border-black shadow-[2px_2px_0px_#000000] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                        <div>
+                    <div className="space-y-2">
+                      {/* Drive 1: Tata Consultancy Services */}
+                      <div className="p-2.5 bg-white border-2 border-black shadow-[2px_2px_0px_#000000] flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+                        <div className="min-w-0">
                           <div className="flex items-center space-x-2">
-                            <span className="font-display font-black text-sm text-black">
+                            <span className="font-display font-black text-xs sm:text-sm text-black">
                               Tata Consultancy Services
                             </span>
-                            <span className="badge-blue">OPEN</span>
+                            <span className="badge-blue text-[10px] py-0 px-1.5 font-bold">OPEN</span>
                           </div>
-                          <p className="font-mono text-xs text-ink-500 mt-1">
-                            Role: Digital & Ninja Cadre • Min CGPA: 7.00 • [CSE, IT, ECE]
+                          <p className="font-mono text-[11px] text-ink-500 mt-0.5">
+                            Digital & Ninja Track • Min 7.0 CGPA • [CSE, IT, ECE]
                           </p>
                         </div>
-                        <div className="sm:text-right font-mono">
-                          <span className="text-xs font-black text-black block">7.0 – 9.2 LPA</span>
-                          <span className="text-[10px] text-ink-400">CLOSES: NOV 15</span>
+                        <div className="sm:text-right font-mono flex sm:flex-col justify-between items-center sm:items-end flex-shrink-0">
+                          <span className="text-xs font-black text-black whitespace-nowrap">7.0 – 9.2 LPA</span>
+                          <span className="text-[9px] text-ink-400 uppercase whitespace-nowrap">CLOSES: NOV 15</span>
                         </div>
                       </div>
 
-                      {/* Drive 2 */}
-                      <div className="p-3 bg-white border-2 border-black shadow-[2px_2px_0px_#000000] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                        <div>
+                      {/* Drive 2: Infosys Limited */}
+                      <div className="p-2.5 bg-white border-2 border-black shadow-[2px_2px_0px_#000000] flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+                        <div className="min-w-0">
                           <div className="flex items-center space-x-2">
-                            <span className="font-display font-black text-sm text-black">
+                            <span className="font-display font-black text-xs sm:text-sm text-black">
                               Infosys Limited
                             </span>
-                            <span className="badge-blue">OPEN</span>
+                            <span className="badge-blue text-[10px] py-0 px-1.5 font-bold">OPEN</span>
                           </div>
-                          <p className="font-mono text-xs text-ink-500 mt-1">
-                            Role: Specialist Programmer • Min CGPA: 7.50 • [CSE, IT]
+                          <p className="font-mono text-[11px] text-ink-500 mt-0.5">
+                            Specialist Programmer (SES) • Min 7.5 CGPA • [CSE, IT]
                           </p>
                         </div>
-                        <div className="sm:text-right font-mono">
-                          <span className="text-xs font-black text-black block">9.5 LPA</span>
-                          <span className="text-[10px] text-ink-400">CLOSES: NOV 20</span>
-                        </div>
-                      </div>
-
-                      {/* Drive 3 */}
-                      <div className="p-3 bg-white border-2 border-black shadow-[2px_2px_0px_#000000] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                        <div>
-                          <div className="flex items-center space-x-2">
-                            <span className="font-display font-black text-sm text-black">
-                              Wipro Enterprise
-                            </span>
-                            <span className="badge-yellow">SHORTLISTING</span>
-                          </div>
-                          <p className="font-mono text-xs text-ink-500 mt-1">
-                            Role: Turbo Hiring Track • Min CGPA: 6.50 • [ALL BRANCHES]
-                          </p>
-                        </div>
-                        <div className="sm:text-right font-mono">
-                          <span className="text-xs font-black text-black block">6.5 – 8.0 LPA</span>
-                          <span className="text-[10px] text-ink-400">IN INTERVIEW</span>
+                        <div className="sm:text-right font-mono flex sm:flex-col justify-between items-center sm:items-end flex-shrink-0">
+                          <span className="text-xs font-black text-black whitespace-nowrap">9.5 LPA</span>
+                          <span className="text-[9px] text-ink-400 uppercase whitespace-nowrap">CLOSES: NOV 20</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   {/* Dual Grid: Recent Application Activity & Upcoming Interviews */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
                     {/* Recent Candidate Evals */}
-                    <div className="p-3 bg-canvas border-2 border-black">
-                      <span className="font-mono text-[10px] font-bold text-black uppercase block pb-1 border-b border-black mb-2">
-                        RECENT EVALUATIONS
-                      </span>
-                      <div className="space-y-2 font-mono text-xs">
+                    <div className="p-2.5 bg-canvas border-2 border-black">
+                      <div className="flex items-center justify-between pb-1 border-b border-black mb-1.5 font-mono text-[10px]">
+                        <span className="font-black text-black uppercase">RECENT EVALUATIONS</span>
+                        <span className="text-[9px] text-ink-400">ROUND 1</span>
+                      </div>
+                      <div className="space-y-1.5 font-mono text-xs">
                         <div className="flex justify-between items-center">
-                          <div>
-                            <span className="font-bold text-black block">Aarav Sharma</span>
-                            <span className="text-[10px] text-ink-500">21CS042 • 8.84 CGPA</span>
+                          <div className="min-w-0">
+                            <span className="font-bold text-black text-[11px] block truncate">Aarav Sharma</span>
+                            <span className="text-[9px] text-ink-500">CSE • 8.84 CGPA</span>
                           </div>
-                          <span className="badge-green">SHORTLIST</span>
+                          <span className="badge-green text-[9px] py-0 px-1 font-bold whitespace-nowrap ml-2">SHORTLIST</span>
                         </div>
-                        <div className="flex justify-between items-center pt-1 border-t border-black/20">
-                          <div>
-                            <span className="font-bold text-black block">Priya Patel</span>
-                            <span className="text-[10px] text-ink-500">21IT019 • 8.12 CGPA</span>
+                        <div className="flex justify-between items-center pt-1 border-t border-black/15">
+                          <div className="min-w-0">
+                            <span className="font-bold text-black text-[11px] block truncate">Priya Patel</span>
+                            <span className="text-[9px] text-ink-500">IT • 8.12 CGPA</span>
                           </div>
-                          <span className="badge-blue">INTERVIEW</span>
+                          <span className="badge-blue text-[9px] py-0 px-1 font-bold whitespace-nowrap ml-2">INTERVIEW</span>
                         </div>
                       </div>
                     </div>
 
-                    {/* Upcoming Interview Schedule */}
-                    <div className="p-3 bg-canvas border-2 border-black">
-                      <span className="font-mono text-[10px] font-bold text-black uppercase block pb-1 border-b border-black mb-2">
-                        UPCOMING INTERVIEWS
-                      </span>
-                      <div className="space-y-2 font-mono text-xs">
+                    {/* Placement Activity */}
+                    <div className="p-2.5 bg-canvas border-2 border-black">
+                      <div className="flex items-center justify-between pb-1 border-b border-black mb-1.5 font-mono text-[10px]">
+                        <span className="font-black text-black uppercase">PLACEMENT ACTIVITY</span>
+                        <span className="text-[9px] text-[#136C2C] font-bold">VERIFIED</span>
+                      </div>
+                      <div className="space-y-1.5 font-mono text-xs">
                         <div className="flex justify-between items-center">
-                          <div>
-                            <span className="font-bold text-black block">TCS Tech Round 1</span>
-                            <span className="text-[10px] text-ink-500">Lab 4 (14 Cand.)</span>
+                          <div className="min-w-0">
+                            <span className="font-bold text-black text-[11px] block truncate">Rahul Verma</span>
+                            <span className="text-[9px] text-ink-500">Microsoft • 44.5 LPA</span>
                           </div>
-                          <span className="text-cobalt font-bold">10:00 AM</span>
+                          <span className="badge-green text-[9px] py-0 px-1 font-bold whitespace-nowrap ml-2">ACCEPTED</span>
                         </div>
-                        <div className="flex justify-between items-center pt-1 border-t border-black/20">
-                          <div>
-                            <span className="font-bold text-black block">Infosys Assessment</span>
-                            <span className="text-[10px] text-ink-500">Virtual Room B</span>
+                        <div className="flex justify-between items-center pt-1 border-t border-black/15">
+                          <div className="min-w-0">
+                            <span className="font-bold text-black text-[11px] block truncate">Sneha Reddy</span>
+                            <span className="text-[9px] text-ink-500">TCS Digital • 9.2 LPA</span>
                           </div>
-                          <span className="text-cobalt font-bold">02:30 PM</span>
+                          <span className="badge-green text-[9px] py-0 px-1 font-bold whitespace-nowrap ml-2">PLACED</span>
                         </div>
                       </div>
                     </div>
@@ -336,9 +322,12 @@ export default function LandingPage() {
                 </div>
 
                 {/* Console Footer */}
-                <div className="bg-canvas border-t-2 border-black px-4 py-2 flex items-center justify-between font-mono text-[10px] text-ink-500">
-                  <span>CAMPUS RECRUITMENT LIVE ENGINE</span>
-                  <span>ACCORDING TO HACK-P410 STANDARD</span>
+                <div className="bg-canvas border-t-2 border-black px-3.5 py-2 flex items-center justify-between font-mono text-[9px] sm:text-[10px] text-ink-500">
+                  <span className="flex items-center">
+                    <span className="w-1.5 h-1.5 bg-[#22C55E] mr-1 inline-block"></span>
+                    RULE ENGINE: ELIGIBILITY CHECK ACTIVE
+                  </span>
+                  <span className="font-bold text-ink">HACK-P410 STANDARD</span>
                 </div>
               </div>
             </div>
