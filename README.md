@@ -1,255 +1,575 @@
-# CampusConnect
-### HACK-P410 — Campus Recruitment Management Portal
+# CAMPUSCONNECT
+### One Platform. Every Opportunity.
 
-> **Full-Stack Autonomous Web Platform for University Placement Offices, Corporate Recruiters, and Graduating Candidates.**
+**A centralized campus recruitment and placement management platform connecting students, recruiters, and placement administrators.**
 
-[![Live Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20Portal-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://campusconnect-portal-alpha.vercel.app)
-[![GitHub Repository](https://img.shields.io/badge/GitHub-pavankm7523--hue%2Fcampusconnect-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pavankm7523-hue/campusconnect)
-[![Spring Boot 3.2.5](https://img.shields.io/badge/Spring%20Boot-3.2.5-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
-[![React 18 & Vite](https://img.shields.io/badge/React%2018-Vite%205-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://vitejs.dev/)
-[![Tests Passing](https://img.shields.io/badge/JUnit%205-15%2F15%20Passing-22C55E?style=for-the-badge&logo=junit5&logoColor=white)](https://junit.org/junit5/)
-[![Design Direction C](https://img.shields.io/badge/Design-Modern%20Brutalist-0038FF?style=for-the-badge)](https://campusconnect-portal-alpha.vercel.app)
+<p align="center">
+  <strong>HACK-P410 | Campus Recruitment Portal</strong><br/>
+  Backend Web Development | Student Hackathon Prototype
+</p>
 
 ---
 
-## 🌐 Live Production Deployment
+## Overview
 
-- **Vercel Frontend URL:** [https://campusconnect-portal-alpha.vercel.app](https://campusconnect-portal-alpha.vercel.app)
-- **Vercel Project Dashboard:** [pavankm7523-hues-projects/campusconnect-portal](https://vercel.com/pavankm7523-hues-projects/campusconnect-portal)
-- **Local Development URL:** `http://localhost:5173` (Frontend) | `http://localhost:8080` (Backend API)
-- **Interactive Swagger UI:** `http://localhost:8080/swagger-ui/index.html`
+CampusConnect is a full-stack campus recruitment management platform designed to simplify and organize the entire college placement process.
 
----
+Traditional campus recruitment often depends on spreadsheets, emails, manual eligibility verification, and disconnected communication channels.
 
-## 📋 Hackathon Project Details
+CampusConnect brings these activities together in one centralized platform, enabling students to discover opportunities, recruiters to manage hiring activities, and placement administrators to coordinate recruitment operations.
 
-- **Problem Statement ID:** HACK-P410 — Campus Recruitment Portal
-- **Subject:** Backend Web Development & Full-Stack Automation
-- **Team Size:** 4 Engineering Students
-- **Core Mission:** Eliminate disconnected spreadsheets, notice boards, and manual verification errors by consolidating student profiles, company recruitment drives, multi-stage interviews, and institutional analytics into an automated, rule-bound web portal.
+Our goal is simple:
+
+**Make campus recruitment more organized, transparent, and accessible.**
 
 ---
 
-## 🎨 Visual Identity — Design Direction C (Modern Brutalist)
+## The Problem
 
-To permanently eradicate generic AI SaaS aesthetics (purple-to-blue gradients, soulless floating glassmorphism cards, and generic template pill badges), CampusConnect is designed using **Design Direction C — Modern Brutalist**:
+Campus placement processes frequently face challenges such as:
 
-- **Color Architecture:**
-  - **Canvas Background:** Warm editorial off-white (`#F4F1EA`)
-  - **Deep Ink:** Heavy black borders and solid ink text (`#0A0A0A`)
-  - **Electric Cobalt:** High-intensity electric blue accents (`#0038FF`)
-  - **Surface Charcoal:** Enterprise paneling (`#1F1F1F`)
-  - **Signal Yellow:** High-priority status pill highlights (`#FACC15`)
-- **Graphic Signatures:**
-  - Strict 2px–3px solid black borders on all interactive inputs and containers.
-  - Hard drop-shadows with zero blur (`shadow-[4px_4px_0px_#0A0A0A]`).
-  - Active button states with mechanical physical press-down feedback (`translate-x-0.5 translate-y-0.5`).
-- **Typography Hierarchy:**
-  - Display & Brand: `Syne` and `Space Grotesk` (all-caps, ultra-bold, tight tracking).
-  - Data & Metrics: `JetBrains Mono` for audit logs, roll numbers, CTC figures, and timestamps.
-  - Body & Reading: `Plus Jakarta Sans` for maximum cross-platform legibility.
+- Fragmented student and recruiter information.
+- Manual eligibility verification.
+- Difficulty tracking job applications.
+- Disorganized interview scheduling.
+- Scattered communication between stakeholders.
+- Limited visibility into placement progress.
+- Time-consuming placement reporting.
 
----
+These inefficiencies make recruitment difficult to coordinate and manage.
 
-## 📸 Application Screenshots
+## Our Solution
 
-| Homepage (Modern Brutalist Hero) | Login Security Gateway |
+CampusConnect provides a unified digital environment for managing the recruitment lifecycle.
+
+The platform connects three major stakeholders:
+
+| User Role | Responsibilities |
 |---|---|
-| ![Homepage Desktop](screenshots/desktop_home.png) | ![Login Page](screenshots/desktop_login.png) |
+| Students | Manage profiles, explore jobs, check eligibility, apply and track applications. |
+| Recruiters | Manage company profiles, publish jobs, review applicants and schedule interviews. |
+| Placement Administrators | Manage students, companies, recruitment drives and placement activities. |
 
-| Candidate Registration & Dual Tabs | Mobile Responsive Experience (390px) |
+---
+
+# Key Features
+
+## 1. Student Portal
+
+- Student registration and authentication.
+- Academic profile management.
+- University roll number and branch information.
+- CGPA and graduation year management.
+- Resume upload and management.
+- Job discovery and detailed job information.
+- Automated eligibility checking.
+- Job application submission.
+- Application status tracking.
+- Interview schedule viewing.
+- Placement notifications.
+
+## 2. Recruiter Portal
+
+- Recruiter registration and authentication.
+- Company profile management.
+- Job posting and management.
+- Job eligibility criteria configuration.
+- Candidate application review.
+- Applicant shortlisting and rejection.
+- Interview scheduling.
+- Recruitment activity monitoring.
+
+## 3. Placement Administrator Portal
+
+- Student management.
+- Recruiter management.
+- Company management.
+- Recruitment drive management.
+- Job and application monitoring.
+- Interview management.
+- Placement result management.
+- Notification management.
+- Placement analytics and reporting.
+
+## 4. Eligibility Engine
+
+CampusConnect includes an eligibility checking mechanism that evaluates student information against job requirements.
+
+Criteria can include:
+
+- Minimum CGPA.
+- Academic branch.
+- Graduation year.
+- Required skills, where configured.
+- Additional job-specific conditions.
+
+The system provides eligibility results and explanations to help students understand recruitment requirements.
+
+## 5. Authentication and Security
+
+- JWT-based authentication.
+- Role-based access control.
+- BCrypt password hashing.
+- Protected application routes.
+- Backend-side request validation.
+- Role-specific access restrictions.
+
+---
+
+# Technology Stack
+
+## Frontend
+
+| Technology | Purpose |
 |---|---|
-| ![Registration Tabs](screenshots/desktop_register.png) | ![Mobile View](screenshots/mobile_home.png) |
+| React 18 | User interface |
+| TypeScript | Type-safe frontend development |
+| JavaScript | Application logic |
+| Tailwind CSS | Styling and responsive layouts |
+| Vite | Development and production build |
+| Axios | REST API communication |
+
+## Backend
+
+| Technology | Purpose |
+|---|---|
+| Java 21 | Backend programming language |
+| Spring Boot 3.2.5 | Backend application framework |
+| Spring Security | Application security |
+| Spring Data JPA | Database access |
+| Hibernate | ORM |
+| JWT | Authentication |
+| BCrypt | Password hashing |
+| Maven | Dependency and build management |
+
+## Database
+
+| Technology | Purpose |
+|---|---|
+| H2 Database | Development database and persistence |
+| Hibernate / JPA | Entity mapping and database operations |
+
+**Note:** The documented development configuration uses file-backed H2. MySQL production support should only be listed as implemented after migration and verification.
+
+## Development and Deployment Tools
+
+- Git and GitHub.
+- Google Antigravity.
+- Visual Studio Code / IntelliJ IDEA.
+- Postman.
+- Swagger / OpenAPI.
+- Vercel for frontend hosting.
+- Docker for backend packaging.
 
 ---
 
-## ⚡ Key System Modules
+# System Architecture
 
-### 🎓 1. Student Candidate Portal
-- **Academic Dossier:** Profile manager cataloging University Roll/USN, Branch, verified CGPA (0.00–10.00), passing out year, and skills tags.
-- **Verified Resume Storage:** Upload and manage PDF resumes with size validation and secure path download.
-- **Drive Discovery & Filtering:** Live corporate directory with keyword search, contract type filter, and branch filter.
-- **Dual-Gate Eligibility Audit:** Instant visual breakdown of satisfied vs deficient benchmarks (CGPA cutoff, branch eligibility, batch year, skill prerequisites).
-- **Candidacy Tracking:** One-click application filing, real-time application stage monitoring (`APPLIED`, `SHORTLISTED`, `SELECTED`, `REJECTED`), and candidate withdrawal capabilities.
-- **Interview Roster:** Calendar schedule for technical assessments, venue links, and interviewer feedback.
-- **Placement Dossier:** Official verified placement letter card with CTC package and reporting date.
-- **Dispatch Center:** Unread announcement counter with click-to-acknowledge functionality.
+CampusConnect follows a layered full-stack architecture.
 
-### 🏢 2. Corporate Recruiter Portal
-- **Enterprise Profile:** Verified hiring desk linked to partner corporation with operational credentials.
-- **Drive Requisition Engine:** Full job posting wizard with granular constraints (minimum CGPA decimal threshold, multi-select branch whitelist, graduation years multi-toggle, and required technical skills).
-- **Candidate Screening Desk:** Filter applicants by status, inspect student academic stats, and review PDF resumes.
-- **Evaluation Pipeline:** One-click candidate shortlisting and rejection with structured feedback justification.
-- **Assessment Scheduler:** Set interview timings, round types (Technical, Managerial, HR), and venue/video conference URLs.
-- **Outcome Recorder:** Update candidate interview verdicts (`PASSED`, `FAILED`, `PENDING`) with panel evaluation notes.
+```text
+             USERS
+               |
+      +--------+--------+
+      |        |        |
+   STUDENT  RECRUITER  ADMIN
+      |        |        |
+      +--------+--------+
+               |
+       REACT FRONTEND
+       TypeScript + Vite
+               |
+          AXIOS / REST
+               |
+       SPRING BOOT API
+               |
+       SPRING SECURITY
+          JWT AUTH
+               |
+       SERVICE LAYER
+               |
+       REPOSITORY LAYER
+        Spring Data JPA
+               |
+          HIBERNATE
+               |
+          H2 DATABASE
+```
 
-### 🏛️ 3. Training & Placement (T&P) Administration
-- **Institutional Governance Dashboard:** Live metric counters (Total Candidates, Partner Firms, Active Drives, Filed Candidacies, Placed Students, Institutional Placement %).
-- **Discipline Distribution:** Real-time branch-wise placement breakdown meters computed directly from the relational database.
-- **Student Registry:** Full searchable candidate roster with one-click institutional CSV export for accreditation audits.
-- **Recruiter Clearance Desk:** Approve or restrict corporate recruiter portal accounts before listings go live.
-- **Enterprise Partner Directory:** Complete CRUD management for accredited companies, logos, websites, and recruiter associations.
-- **Recruitment Drive Orchestrator:** Schedule on-campus seasons, activate multi-day hiring tracks, and track completion.
-- **Governance Overrides:** Ability to update application pipeline statuses and arbitrate student placement outcomes.
-- **Broadcast Communique Desk:** Targeted announcements dispatched to all users, student cohorts, or corporate partners.
+The frontend communicates with the backend through REST APIs.
 
-### 🧠 4. Server-Side Eligibility Engine
-Every job application is validated by `EligibilityService.java` against 4 independent criteria:
-1. **Academic CGPA:** Real-time check (`student.cgpa >= job.minCgpa`).
-2. **Disciplinary Whitelist:** Student branch validated against recruiter's eligible branch set (`CSE`, `IT`, `ECE`, `EEE`, `ME`, `CE`, `AIDS`, `AIML`, `DS`).
-3. **Batch Matching:** Graduation year verification against target passing out batches.
-4. **Competency Overlap:** Analysis of candidate technical skill tags against job prerequisites.
-
----
-
-## 🛠️ Technology Stack
-
-| Layer | Component | Implementation |
-|---|---|---|
-| **Frontend Framework** | React 18 & TypeScript | Vite 5 build tool, client-side routing with React Router v6 |
-| **Styling & Design** | Tailwind CSS 3.4 | Modern Brutalist design system, custom typography, hard drop shadows |
-| **Data Visualization** | Recharts | Responsive bar charts, pie charts, and velocity line charts |
-| **Icons & Notifications** | Lucide React & React Hot Toast | High-contrast brutalist icon set and deduplicated toast messaging |
-| **HTTP & Networking** | Axios | Relative proxying, JWT request interceptor, unified error extractor |
-| **Backend Framework** | Java 17 & Spring Boot 3.2.5 | Spring Web, Spring Security, Spring Data JPA, Hibernate ORM |
-| **Authentication & Tokens** | JWT (jjwt 0.12.3) & BCrypt | Cryptographically signed HS512 tokens with role claims, 10-round BCrypt |
-| **Database** | MySQL 8.0 / H2 | 10 normalized relational tables, foreign key cascades, composite indexes |
-| **API Documentation** | Springdoc OpenAPI 2.3.0 | Interactive Swagger UI at `/swagger-ui/index.html` |
-| **Build & Testing** | Maven 3.8+ & JUnit 5 | 15 JUnit and Mockito unit tests (100% pass rate) |
+The backend handles authentication, authorization, business logic, eligibility verification and database operations.
 
 ---
 
-## 🧪 Automated Unit Test Suite (15/15 Passing)
+# Application Workflow
 
-The backend test suite verifies core business logic across authentication, eligibility, and application workflows:
+```text
+          STUDENT REGISTRATION
+                   |
+             LOGIN / JWT
+                   |
+           STUDENT PROFILE
+                   |
+            VIEW JOBS
+                   |
+         CHECK ELIGIBILITY
+                   |
+             APPLY FOR JOB
+                   |
+         RECRUITER REVIEWS
+                   |
+          SHORTLIST CANDIDATE
+                   |
+         SCHEDULE INTERVIEW
+                   |
+          SELECTION RESULT
+                   |
+          PLACEMENT RECORD
+```
+
+---
+
+# Project Structure
+
+```text
+CampusConnect/
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── layouts/
+│   │   ├── services/
+│   │   ├── hooks/
+│   │   └── App.tsx
+│   ├── package.json
+│   ├── vite.config.ts
+│   └── vercel.json
+│
+├── backend/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   └── resources/
+│   │   └── test/
+│   ├── pom.xml
+│   └── Dockerfile
+│
+├── database/
+│
+├── docs/
+│   ├── deployment.md
+│   ├── api-reference.md
+│   ├── presentation.md
+│   └── demo-script.md
+│
+├── screenshots/
+│
+├── README.md
+├── TASKS.md
+└── .gitignore
+```
+
+*The structure above is representative. Adjust folder names to match the actual repository.*
+
+---
+
+# Getting Started
+
+Follow these steps to run CampusConnect locally.
+
+## Prerequisites
+
+Install:
+
+- Java Development Kit 21.
+- Node.js and npm.
+- Git.
+- Maven or the included Maven wrapper.
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/pavankm7523-hue/campusconnect.git
+```
+
+```bash
+cd campusconnect
+```
+
+## 2. Start the Backend
+
+Open a terminal:
+
+```bash
+cd backend
+```
+
+Build the application:
+
+```bash
+mvn clean package
+```
+
+Run the Spring Boot application:
+
+```bash
+mvn spring-boot:run
+```
+
+The backend should run on:
+
+```text
+http://localhost:8080
+```
+
+## 3. Start the Frontend
+
+Open another terminal:
+
+```bash
+cd frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The frontend should be available at:
+
+```text
+http://localhost:5173
+```
+
+## 4. API Documentation
+
+If Swagger is enabled:
+
+```text
+http://localhost:8080/swagger-ui/index.html
+```
+
+OpenAPI specification:
+
+```text
+http://localhost:8080/api-docs
+```
+
+---
+
+# Configuration
+
+Create environment-specific configuration using the supplied example files.
+
+Example frontend environment variable:
+
+```env
+VITE_API_URL=http://localhost:8080
+```
+
+For production, replace this with the actual deployed backend URL.
+
+Never commit passwords, API secrets, JWT signing keys or database credentials.
+
+---
+
+# API Modules
+
+The backend provides REST API functionality for the following modules:
+
+| Module | Functionality |
+|---|---|
+| Authentication | Registration and login |
+| Students | Profile and student information |
+| Recruiters | Recruiter and company operations |
+| Jobs | Job posting and discovery |
+| Eligibility | Eligibility evaluation |
+| Applications | Application tracking and management |
+| Interviews | Interview scheduling |
+| Notifications | User notifications |
+| Administration | Placement administration |
+| Analytics | Placement statistics |
+
+Refer to the Swagger documentation for the actual implemented endpoint paths and request formats.
+
+---
+
+# User Interface
+
+CampusConnect follows a Modern Digital Brutalist visual identity.
+
+Design characteristics:
+
+- Warm off-white backgrounds.
+- Bold black typography.
+- Electric cobalt blue accents.
+- Sharp rectangular layouts.
+- Strong visual borders.
+- Hard offset shadows.
+- Asymmetric editorial compositions.
+- Responsive layouts.
+
+## Screenshots
+
+Add your actual application screenshots to the `screenshots/` folder.
+
+Suggested files:
+
+```text
+screenshots/
+├── hero_1440_desktop.png
+├── hero_1366_laptop.png
+├── hero_1024_tablet.png
+├── hero_768_tablet.png
+├── hero_390_mobile.png
+├── desktop_login.png
+└── desktop_register.png
+```
+
+Display them using:
+
+```markdown
+![CampusConnect Desktop Hero](screenshots/hero_1440_desktop.png)
+
+![Student Dashboard](screenshots/hero_1024_tablet.png)
+
+![Recruiter Dashboard](screenshots/hero_768_tablet.png)
+
+![Mobile Viewport](screenshots/hero_390_mobile.png)
+```
+
+---
+
+# Testing
+
+The project includes backend unit tests and frontend build verification.
+
+Areas covered by the test suite include:
+
+- Authentication.
+- Eligibility checking.
+- Application management.
+
+Run backend tests:
 
 ```bash
 mvn test
 ```
 
-```
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running com.campusconnect.ApplicationServiceTest
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.114 s
-[INFO] Running com.campusconnect.AuthServiceTest
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.252 s
-[INFO] Running com.campusconnect.EligibilityServiceTest
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s
-[INFO] 
-[INFO] Results:
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-```
+Build the frontend:
 
----
-
-## 🔑 Evaluator Demo Credentials
-
-Pre-seeded database accounts available for evaluation:
-
-| Role | Email Address | Password | Permissions & Dashboard |
-|---|---|---|---|
-| **T&P Administrator** | `admin@campusconnect.edu` | `Admin@123` | Master governance, partner approval, analytics, CSV export |
-| **Corporate Recruiter** | `recruiter1@tcs.com` | `Admin@123` | Post openings, candidate review, schedule interviews |
-| **Student Candidate** | `student1@college.edu` | `Admin@123` | Profile management, browse drives, 1-click apply, track status |
-
----
-
-## 🚀 Quick Start & Installation
-
-### Option A: One-Click Local Run (Windows)
-Double-click `run-local.bat` in the root folder, or execute:
-```cmd
-run-local.bat
-```
-To cleanly stop all background services:
-```cmd
-stop-local.bat
-```
-
-### Option B: Manual Step-by-Step Setup
-
-#### 1. Start Backend (Spring Boot 3.2.5)
 ```bash
-cd CampusConnect/backend
-./mvnw clean package -DskipTests
-java -jar target/campusconnect-backend-1.0.0.jar
-# Backend initializes on http://localhost:8080 with auto-seeded demo data
-```
-
-#### 2. Start Frontend (React + Vite)
-```bash
-cd CampusConnect/frontend
-npm install
-npm run dev
-# Frontend runs on http://localhost:5173
-```
-
-#### 3. Build for Production
-```bash
-cd CampusConnect/frontend
 npm run build
-# Compiles verified production bundles to dist/
 ```
+
+Build the backend:
+
+```bash
+mvn clean package
+```
+
+Add the latest verified test results before final submission.
 
 ---
 
-## 📂 Project Repository Structure
+# Deployment
 
-```
-CampusConnect/
-├── frontend/
-│   ├── src/
-│   │   ├── pages/
-│   │   │   ├── public/LandingPage.tsx      # Modern Brutalist Hero & Eligibility Tester
-│   │   │   ├── auth/LoginPage.tsx          # High-contrast Authentication Gateway
-│   │   │   ├── auth/RegisterPage.tsx       # Student & Recruiter Onboarding Tabs
-│   │   │   ├── student/                    # Student Portal (Dashboard, Jobs, Applications, Profile)
-│   │   │   ├── recruiter/                  # Recruiter Portal (Jobs, Create Job, Applicants, Interviews)
-│   │   │   └── admin/                      # Admin Portal (Audit, Students, Recruiters, Analytics)
-│   │   ├── components/                     # Brutalist StatCards, Badges, Spinners
-│   │   ├── services/api.ts                 # Axios networking & toast deduplication
-│   │   └── context/AuthContext.tsx         # JWT state management
-│   ├── tailwind.config.js                  # Brutalist design tokens & font bindings
-│   └── package.json
-├── backend/
-│   ├── src/main/java/com/campusconnect/
-│   │   ├── entity/                         # 10 Normalized JPA Entities
-│   │   ├── controller/                     # REST API Controllers (/api/*)
-│   │   ├── service/                        # Business Logic & Eligibility Engine
-│   │   ├── repository/                     # Spring Data JPA Repositories
-│   │   ├── security/                       # JWT Filter, Authentication Manager
-│   │   └── config/                         # OpenAPI Swagger & CORS Config
-│   ├── src/test/java/com/campusconnect/    # 15 Unit & Mockito Tests
-│   └── pom.xml                             # Spring Boot 3.2.5 dependencies
-├── database/
-│   ├── schema.sql                          # Full DDL (10 relational tables)
-│   └── seed.sql                            # Production seed data
-├── docs/
-│   ├── presentation.md                     # 10-Slide Hackathon PPT Outline
-│   ├── demo-script.md                      # 5-Minute Video Walkthrough Script
-│   ├── architecture.md                     # Detailed Three-Tier System Architecture
-│   ├── er-diagram.md                       # Relational Entity-Relationship Guide
-│   └── deployment.md                       # Vercel & Cloud Backend Blueprint
-├── screenshots/                            # Desktop & Mobile UI Captures
-├── TASKS.md                                # Phase-by-phase development checklist (100% complete)
-├── run-local.bat                           # 1-Click Windows execution script
-└── stop-local.bat                          # 1-Click service termination script
-```
+## Frontend
+
+The React/Vite application can be deployed using Vercel.
+
+Production URL:
+
+https://campusconnect-portal-alpha.vercel.app
+
+## Backend
+
+The Spring Boot backend can be deployed using a compatible Java hosting platform or Docker-based hosting.
+
+## Database
+
+The documented development configuration uses file-backed H2.
+
+For permanent production deployment, configure persistent database storage and verify backup, restart and data-persistence behaviour.
+
+See `docs/deployment.md` for environment-specific instructions.
 
 ---
 
-## 🏆 Hackathon Submission Deliverables
+# Future Enhancements
 
-- **Slide Deck Outline:** [`docs/presentation.md`](docs/presentation.md) (10 structured presentation slides)
-- **Demo Video Script:** [`docs/demo-script.md`](docs/demo-script.md) (Time-coded 5-minute evaluator demonstration walkthrough)
-- **API Specification:** Interactive Swagger UI at `http://localhost:8080/swagger-ui/index.html` and [`docs/api-reference.md`](docs/api-reference.md)
-- **Postman API Test Collection:** [`tests/CampusConnect.postman_collection.json`](tests/CampusConnect.postman_collection.json)
+Potential future improvements include:
+
+- AI-powered resume parsing.
+- Automated skill matching.
+- Smart job recommendations.
+- Calendar integration.
+- Interview feedback management.
+- Offer comparison.
+- Advanced placement analytics.
+- Email and real-time notifications.
+- Enhanced reporting and exports.
+
+These are proposed enhancements and should not be confused with currently implemented features.
 
 ---
 
-## 📜 License & Acknowledgments
-Developed by Team 4 for **HACK-P410 — Campus Recruitment Portal**. Built with educational rigor, clean architecture principles, and zero AI aesthetic compromises.
+# Project Information
+
+| Field | Details |
+|---|---|
+| Project Name | CampusConnect |
+| Problem ID | HACK-P410 |
+| Category | Job & Recruitment |
+| Subject | Backend Web Development |
+| Project Type | Student Hackathon Prototype |
+| Team Size | 4 Students |
+
+## Team Members
+
+Replace the placeholders with the actual team details.
+
+| Member | Name | Contribution |
+|---|---|---|
+| Member 1 | YOUR NAME | Frontend Development |
+| Member 2 | TEAM MEMBER 2 | Backend Development |
+| Member 3 | TEAM MEMBER 3 | Database and Integration |
+| Member 4 | TEAM MEMBER 4 | Testing and Documentation |
+
+---
+
+# Project Links
+
+| Resource | Link |
+|---|---|
+| Live Application | https://campusconnect-portal-alpha.vercel.app |
+| GitHub Repository | https://github.com/pavankm7523-hue/campusconnect |
+| API Gateway | https://divorce-citizen-special-ext.trycloudflare.com |
+| Release Package | https://github.com/pavankm7523-hue/campusconnect/releases/tag/v1.0.0 |
+
+---
+
+# License
+
+This project was developed as a student hackathon prototype.
+
+Add an appropriate open-source license if the team decides to publish the source code under one.
+
+---
+
+<p align="center">
+  <strong>CAMPUSCONNECT</strong><br/>
+  One Platform. Every Opportunity.
+  <br/><br/>
+  Built to simplify campus recruitment.
+</p>
