@@ -1,0 +1,64 @@
+# CampusConnect — .gitignore
+
+# ==============================
+# General
+# ==============================
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+.env
+*.env.local
+*.env.production.local
+.agents/
+data/
+*.mv.db
+*.trace.db
+
+# ==============================
+# Frontend
+# ==============================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.env
+frontend/.env.local
+frontend/.vercel/
+.vercel/
+
+# ==============================
+# Backend
+# ==============================
+backend/target/
+backend/.env
+backend/*.jar
+backend/**/*.class
+backend/.mvn/wrapper/maven-wrapper.jar
+!backend/.mvn/wrapper/maven-wrapper.properties
+.m2/
+backend/.m2/
+
+# ==============================
+# IDE / Editor
+# ==============================
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ==============================
+# Uploads (don't commit uploaded files)
+# ==============================
+backend/uploads/
+
+# ==============================
+# OS
+# ==============================
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/

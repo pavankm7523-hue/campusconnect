@@ -1,0 +1,421 @@
+{
+  "info": {
+    "name": "CampusConnect API",
+    "description": "Complete API collection for CampusConnect Campus Recruitment Portal (HACK-P410)",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080", "type": "string" },
+    { "key": "studentToken", "value": "", "type": "string" },
+    { "key": "recruiterToken", "value": "", "type": "string" },
+    { "key": "adminToken", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register Student",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/api/auth/register/student",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Test Student\",\n  \"email\": \"teststudent@college.edu\",\n  \"password\": \"Test@123\",\n  \"rollNumber\": \"CS2024999\",\n  \"branch\": \"CSE\",\n  \"graduationYear\": 2025,\n  \"phone\": \"9999999999\"\n}"
+            }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test('Status 201', () => pm.response.to.have.status(201));",
+                "const json = pm.response.json();",
+                "pm.test('Has token', () => pm.expect(json.data.token).to.exist);",
+                "pm.collectionVariables.set('studentToken', json.data.token);"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Login Student",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/api/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"student1@college.edu\",\n  \"password\": \"Admin@123\"\n}"
+            }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                "const json = pm.response.json();",
+                "pm.test('Role is STUDENT', () => pm.expect(json.data.role).to.equal('STUDENT'));",
+                "pm.collectionVariables.set('studentToken', json.data.token);"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/api/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@campusconnect.edu\",\n  \"password\": \"Admin@123\"\n}"
+            }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                "const json = pm.response.json();",
+                "pm.test('Role is ADMIN', () => pm.expect(json.data.role).to.equal('ADMIN'));",
+                "pm.collectionVariables.set('adminToken', json.data.token);"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Login Recruiter",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/api/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"recruiter1@tcs.com\",\n  \"password\": \"Admin@123\"\n}"
+            }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                "const json = pm.response.json();",
+                "pm.test('Role is RECRUITER', () => pm.expect(json.data.role).to.equal('RECRUITER'));",
+                "pm.collectionVariables.set('recruiterToken', json.data.token);"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Login Invalid Credentials",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/api/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"notexist@test.com\",\n  \"password\": \"wrongpassword\"\n}"
+            }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test('Status 401', () => pm.response.to.have.status(401));"
+              ]
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Public",
+      "item": [
+        {
+          "name": "Get Platform Stats",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/public/stats"
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["pm.test('Status 200', () => pm.response.to.have.status(200));"] }
+          }]
+        },
+        {
+          "name": "Get Companies (Public)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/public/companies"
+          }
+        },
+        {
+          "name": "Get Jobs (Public)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/public/jobs?page=0&size=10",
+              "query": [{ "key": "page", "value": "0" }, { "key": "size", "value": "10" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Student",
+      "item": [
+        {
+          "name": "Get Dashboard",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/student/dashboard",
+            "header": [{ "key": "Authorization", "value": "Bearer {{studentToken}}" }]
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["pm.test('Status 200', () => pm.response.to.have.status(200));"] }
+          }]
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/student/profile",
+            "header": [{ "key": "Authorization", "value": "Bearer {{studentToken}}" }]
+          }
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/student/profile",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{studentToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Arjun Mehta Updated\",\n  \"rollNumber\": \"CS2021001\",\n  \"branch\": \"CSE\",\n  \"cgpa\": 8.7,\n  \"graduationYear\": 2025,\n  \"phone\": \"9123456789\",\n  \"skills\": [\"Java\", \"Spring Boot\", \"React\", \"MySQL\", \"Docker\"]\n}"
+            }
+          }
+        },
+        {
+          "name": "Browse Jobs",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/student/jobs?page=0&size=10",
+              "query": [{ "key": "page", "value": "0" }, { "key": "size", "value": "10" }]
+            },
+            "header": [{ "key": "Authorization", "value": "Bearer {{studentToken}}" }]
+          }
+        },
+        {
+          "name": "Check Eligibility",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/student/jobs/1/eligibility",
+            "header": [{ "key": "Authorization", "value": "Bearer {{studentToken}}" }]
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                "const json = pm.response.json();",
+                "pm.test('Has eligible field', () => pm.expect(json.data).to.have.property('eligible'));",
+                "pm.test('Has criteria breakdown', () => pm.expect(json.data.satisfiedCriteria).to.be.an('array'));"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Apply for Job",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/student/applications/1",
+            "header": [{ "key": "Authorization", "value": "Bearer {{studentToken}}" }]
+          }
+        },
+        {
+          "name": "Get My Applications",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/student/applications",
+            "header": [{ "key": "Authorization", "value": "Bearer {{studentToken}}" }]
+          }
+        },
+        {
+          "name": "Get Notifications",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/student/notifications",
+            "header": [{ "key": "Authorization", "value": "Bearer {{studentToken}}" }]
+          }
+        },
+        {
+          "name": "Get Unread Count",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/student/notifications/unread-count",
+            "header": [{ "key": "Authorization", "value": "Bearer {{studentToken}}" }]
+          }
+        },
+        {
+          "name": "Unauthorized Access (no token)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/student/dashboard"
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["pm.test('Status 401', () => pm.response.to.have.status(401));"] }
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Recruiter",
+      "item": [
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/recruiter/profile",
+            "header": [{ "key": "Authorization", "value": "Bearer {{recruiterToken}}" }]
+          }
+        },
+        {
+          "name": "Get My Jobs",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/recruiter/jobs",
+            "header": [{ "key": "Authorization", "value": "Bearer {{recruiterToken}}" }]
+          }
+        },
+        {
+          "name": "Create Job",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/recruiter/jobs",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{recruiterToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Java Developer\",\n  \"description\": \"Looking for a skilled Java developer with Spring Boot experience.\",\n  \"minCgpa\": 7.5,\n  \"eligibleBranches\": [\"CSE\", \"IT\"],\n  \"eligibleGraduationYears\": [2025, 2026],\n  \"requiredSkills\": [\"Java\", \"Spring Boot\", \"MySQL\"],\n  \"packageOffered\": \"8-12 LPA\",\n  \"jobType\": \"FULL_TIME\",\n  \"location\": \"Bangalore\",\n  \"applicationDeadline\": \"2025-12-31\",\n  \"status\": \"OPEN\",\n  \"totalPositions\": 10\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Job Applicants",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/recruiter/jobs/1/applicants",
+            "header": [{ "key": "Authorization", "value": "Bearer {{recruiterToken}}" }]
+          }
+        },
+        {
+          "name": "Shortlist Candidate",
+          "request": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/recruiter/applications/1/shortlist",
+            "header": [{ "key": "Authorization", "value": "Bearer {{recruiterToken}}" }]
+          }
+        },
+        {
+          "name": "Schedule Interview",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/recruiter/interviews",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{recruiterToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": 1,\n  \"scheduledAt\": \"2025-12-15T10:00:00\",\n  \"venue\": \"TCS Chennai Office, Floor 3\",\n  \"interviewType\": \"OFFLINE\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Get Dashboard Stats",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/admin/dashboard",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }]
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                "const json = pm.response.json();",
+                "pm.test('Has totalStudents', () => pm.expect(json.data).to.have.property('totalStudents'));",
+                "pm.test('Has placementPercentage', () => pm.expect(json.data).to.have.property('placementPercentage'));"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Get All Students",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/admin/students",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }]
+          }
+        },
+        {
+          "name": "Get All Recruiters",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/admin/recruiters",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }]
+          }
+        },
+        {
+          "name": "Create Company",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/admin/companies",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Google India\",\n  \"description\": \"Google India Pvt Ltd\",\n  \"industry\": \"Technology\",\n  \"website\": \"https://careers.google.com\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Approve Recruiter",
+          "request": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/admin/recruiters/1/approve",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }]
+          }
+        },
+        {
+          "name": "Admin Access Student Endpoint (Forbidden)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/student/dashboard",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }]
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["pm.test('Status 403 (Admin cant access student routes)', () => pm.response.to.have.status(403));"] }
+          }]
+        }
+      ]
+    }
+  ]
+}

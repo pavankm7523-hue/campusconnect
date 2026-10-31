@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/api/(.*)", "dest": "https://divorce-citizen-special-ext.trycloudflare.com/api/$1" },
+    { "src": "/.*", "dest": "/index.html" }
+  ]
+}

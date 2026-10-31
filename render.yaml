@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: campusconnect-backend
+    env: docker
+    dockerfilePath: backend/Dockerfile
+    dockerContext: backend
+    plan: free
+    region: oregon
+    healthCheckPath: /api/public/stats
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: DB_URL
+        value: jdbc:h2:mem:campusconnect;DB_CLOSE_DELAY=-1;MODE=MySQL
+      - key: DB_USERNAME
+        value: sa
+      - key: DB_PASSWORD
+        value: ""
+      - key: JWT_SECRET
+        generateValue: true

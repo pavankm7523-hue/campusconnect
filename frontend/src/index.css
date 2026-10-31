@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #F4F1EA;
+    color: #0A0A0A;
+  }
+  body {
+    background-color: #F4F1EA;
+    color: #0A0A0A;
+    margin: 0;
+  }
+
+  ::selection {
+    background-color: #0038FF;
+    color: #FFFFFF;
+  }
+}
+
+/* Brutalist Custom Shadows */
+.shadow-brutal-sm {
+  box-shadow: 2px 2px 0px #0A0A0A;
+}
+.shadow-brutal {
+  box-shadow: 4px 4px 0px #0A0A0A;
+}
+.shadow-brutal-lg {
+  box-shadow: 6px 6px 0px #0A0A0A;
+}
+.shadow-brutal-cobalt {
+  box-shadow: 4px 4px 0px #0038FF;
+}
+
+@layer components {
+  /* Brutalist Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-[#0A0A0A] hover:bg-[#0038FF] active:translate-x-[2px] active:translate-y-[2px] disabled:bg-[#7E7E76] disabled:text-[#D4D0C5] text-white font-mono font-bold uppercase text-xs tracking-wider py-3 px-6 border-2 border-[#0A0A0A] shadow-[4px_4px_0px_#0A0A0A] hover:shadow-[4px_4px_0px_#0038FF] active:shadow-none transition-all duration-100 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0038FF];
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-white hover:bg-[#F4F1EA] active:translate-x-[2px] active:translate-y-[2px] disabled:bg-[#EAE6DC] text-[#0A0A0A] font-mono font-bold uppercase text-xs tracking-wider py-3 px-6 border-2 border-[#0A0A0A] shadow-[4px_4px_0px_#0A0A0A] active:shadow-none transition-all duration-100 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A0A0A];
+  }
+  .btn-accent {
+    @apply inline-flex items-center justify-center bg-[#0038FF] hover:bg-[#0026B3] active:translate-x-[2px] active:translate-y-[2px] text-white font-mono font-bold uppercase text-xs tracking-wider py-3 px-6 border-2 border-[#0A0A0A] shadow-[4px_4px_0px_#0A0A0A] active:shadow-none transition-all duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0038FF];
+  }
+  
+  /* Cards & Surfaces */
+  .card {
+    @apply bg-white border-2 border-[#0A0A0A] shadow-[4px_4px_0px_#0A0A0A] p-6;
+  }
+  .brutal-card-charcoal {
+    @apply bg-[#1F1F1F] text-white border-2 border-[#0A0A0A] shadow-[4px_4px_0px_#0038FF] p-6;
+  }
+
+  /* Inputs */
+  .input-field {
+    @apply w-full px-4 py-3 text-sm bg-white border-2 border-[#0A0A0A] text-[#0A0A0A] placeholder-[#7E7E76] font-mono rounded-none focus:outline-none focus:bg-[#E6ECFF] focus:border-[#0038FF] transition-colors duration-150;
+  }
+
+  /* Bold Brutalist Badges */
+  .badge-green {
+    @apply inline-flex items-center px-2.5 py-0.5 text-[11px] font-mono font-bold uppercase tracking-wider bg-[#22C55E] text-black border border-black shadow-[1px_1px_0px_#000000];
+  }
+  .badge-blue {
+    @apply inline-flex items-center px-2.5 py-0.5 text-[11px] font-mono font-bold uppercase tracking-wider bg-[#0038FF] text-white border border-black shadow-[1px_1px_0px_#000000];
+  }
+  .badge-yellow {
+    @apply inline-flex items-center px-2.5 py-0.5 text-[11px] font-mono font-bold uppercase tracking-wider bg-[#FACC15] text-black border border-black shadow-[1px_1px_0px_#000000];
+  }
+  .badge-red {
+    @apply inline-flex items-center px-2.5 py-0.5 text-[11px] font-mono font-bold uppercase tracking-wider bg-[#EF4444] text-white border border-black shadow-[1px_1px_0px_#000000];
+  }
+  .badge-gray {
+    @apply inline-flex items-center px-2.5 py-0.5 text-[11px] font-mono font-bold uppercase tracking-wider bg-[#EAE6DC] text-[#0A0A0A] border border-black shadow-[1px_1px_0px_#000000];
+  }
+}
